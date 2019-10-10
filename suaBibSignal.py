@@ -5,14 +5,24 @@ import matplotlib.pyplot as plt
 from scipy.fftpack import fft
 from scipy import signal as window
 
-
-
-class signalMeu:
+class mySignal:
     def __init__(self):
         self.init = 0
-
-    def __init__(self):
-        self.init = 0
+        self.table = {
+            0: [1336, 941],
+            1: [1209, 697],
+            2: [1336, 697],
+            3: [1477, 697],
+            4: [1209, 770],
+            5: [1336, 770],
+            6: [1477, 770],
+            7: [1209, 852],
+            8: [1336, 852],
+            9: [1477, 852],
+            '#': [1477, 941]  
+        }
+        self.fs = 44100
+        self.duration = 1
 
     def generateSin(self, freq, amplitude, time, fs):
         n = time*fs
@@ -34,3 +44,6 @@ class signalMeu:
         plt.figure()
         plt.plot(x, np.abs(y))
         plt.title('Fourier')
+
+    def numberToFreq(self, number):
+        return self.table[number][0], self.table[number][1]
