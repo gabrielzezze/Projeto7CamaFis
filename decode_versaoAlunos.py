@@ -73,7 +73,7 @@ def main():
     #voce deve aprender a usa-la. ha como ajustar a sensibilidade, ou seja, o que é um pico?
     #voce deve tambem evitar que dois picos proximos sejam identificados, pois pequenas variacoes na
     #frequencia do sinal podem gerar mais de um pico, e na verdade tempos apenas 1.
-    index = peakutils.indexes(yf, 0.05, min_dist=50)
+    index = peakutils.indexes(yf, 0.05, min_dist=100)
     picos = [xf[i] for i in index]
     for pico in picos:
         print('PICO: {}'.format(pico))
